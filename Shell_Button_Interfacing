@@ -1,0 +1,22 @@
+#########shell script written in linux 
+gpio mode 0 out  #pin 0 as output
+gpio mode 2 in   #set pin 2 as input 
+a=0
+clear
+
+while true
+do 
+#read the button at pin 2
+a="$(gpio read 2)"
+
+if [ "$a" -eq 0 ] 
+then 	
+ 	gpio write 0  1 
+else 
+	gpio write 0  0
+fi
+#sleep 1
+done 
+
+ 
+	 
